@@ -5,6 +5,7 @@ const assert = require('assert');
 describe('SauceDemo Automation', function () {
     let driver;
 
+
     it('Test Case 1 - Login sukse dengan valid password', async function () {
         // kenapa pake serviceBuilder? karena chromedrivernya pakai yang v141, jadi harus setting pathnya yang sesuai juga
         const service = new chrome.ServiceBuilder('C:\\Users\\ThinkPad\\Downloads\\chromedriver-win64\\chromedriver.exe');
@@ -49,14 +50,14 @@ describe('SauceDemo Automation', function () {
         await dropdownSort.click();
         const priceLowToHigh = await driver.findElement(By.xpath('//option[text()="Price (low to high)"]'));
         await priceLowToHigh.click();
-        await driver.sleep(2000); // pakai sleep agar freeze sebentar untuk cek dan debug
+        await driver.sleep(1000); // pakai sleep agar freeze sebentar untuk cek dan debug
 
         // cek element pertama harganya paling murah
         const firstPrice = await driver.findElement(By.css('.inventory_item_price'));
 
         const priceText = await firstPrice.getText(); // misal "$7.99"
         assert.ok(priceText.includes('$')); // minimal cek ada price
-        await driver.sleep(2000);
+        // await driver.sleep(2000);
 
         await driver.quit();
 
