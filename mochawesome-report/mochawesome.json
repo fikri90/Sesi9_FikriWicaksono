@@ -5,9 +5,9 @@
     "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2025-11-01T06:39:53.587Z",
-    "end": "2025-11-01T06:40:02.460Z",
-    "duration": 8873,
+    "start": "2025-11-01T06:47:45.444Z",
+    "end": "2025-11-01T06:47:54.406Z",
+    "duration": 8962,
     "testsRegistered": 2,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "44632500-dc0f-42a0-a9c6-28be258a3b82",
+      "uuid": "a682a7b6-a758-4450-b8e4-c6bb107ecdfd",
       "title": "",
       "fullFile": "D:\\SQA\\Mini Bootcamp QA\\HOMEWORK\\Sesi9_FikriWicaksono\\tests\\saucedemo-test.js",
       "file": "\\tests\\saucedemo-test.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "3e1ee444-e4c1-477c-8b26-5c1b33db10e1",
+          "uuid": "a4f957b4-b7bd-4a38-9987-13d003859085",
           "title": "SauceDemo Automation",
           "fullFile": "D:\\SQA\\Mini Bootcamp QA\\HOMEWORK\\Sesi9_FikriWicaksono\\tests\\saucedemo-test.js",
           "file": "\\tests\\saucedemo-test.js",
@@ -38,7 +38,7 @@
               "title": "Test Case 1 - Login sukse dengan valid password",
               "fullTitle": "SauceDemo Automation Test Case 1 - Login sukse dengan valid password",
               "timedOut": false,
-              "duration": 4182,
+              "duration": 4472,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "// kenapa pake serviceBuilder? karena chromedrivernya pakai yang v141, jadi harus setting pathnya yang sesuai juga\nconst service = new chrome.ServiceBuilder('C:\\\\Users\\\\ThinkPad\\\\Downloads\\\\chromedriver-win64\\\\chromedriver.exe');\nconst options = new chrome.Options();\noptions.addArguments('--incognito');\ndriver = await new Builder()\n    .forBrowser('chrome')\n    .setChromeOptions(options)\n    .setChromeService(service)\n    .build();\nawait driver.get('https://www.saucedemo.com');\n// input username dan password\nconst inputUsername = await driver.findElement(By.css('[data-test=\"username\"]'));\nconst inputPassword = await driver.findElement(By.xpath('//*[@data-test=\"password\"]'));\nconst buttonLogin = await driver.findElement(By.css('.submit-button.btn_action'));\nawait inputUsername.sendKeys('standard_user');\nawait inputPassword.sendKeys('secret_sauce');\nawait buttonLogin.click();\nconst title = await driver.getTitle();\nassert.strictEqual(title, 'Swag Labs');\nawait driver.sleep(2000); // pakai sleep agar freeze sebentar untuk cek dan debug",
               "err": {},
-              "uuid": "293c6b92-648a-49f6-845f-30ca66017df2",
-              "parentUUID": "3e1ee444-e4c1-477c-8b26-5c1b33db10e1",
+              "uuid": "a011cc20-360c-494b-9668-49644356e2fc",
+              "parentUUID": "a4f957b4-b7bd-4a38-9987-13d003859085",
               "isHook": false,
               "skipped": false
             },
@@ -56,7 +56,7 @@
               "title": "Test case 2 - Sort produk Low to High",
               "fullTitle": "SauceDemo Automation Test case 2 - Sort produk Low to High",
               "timedOut": false,
-              "duration": 4669,
+              "duration": 4463,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -65,21 +65,21 @@
               "context": null,
               "code": "const service = new chrome.ServiceBuilder('C:\\\\Users\\\\ThinkPad\\\\Downloads\\\\chromedriver-win64\\\\chromedriver.exe');\nconst options = new chrome.Options();\noptions.addArguments('--incognito');\n// menunggu sampai produk muncul\nconst dropdownSort = await driver.wait(\n    until.elementLocated(By.css('[data-test=\"product-sort-container\"]')),\n    10000\n);\n// mensortir produk dengan price low to high\nawait dropdownSort.click();\nconst priceLowToHigh = await driver.findElement(By.xpath('//option[text()=\"Price (low to high)\"]'));\nawait priceLowToHigh.click();\nawait driver.sleep(2000); // pakai sleep agar freeze sebentar untuk cek dan debug\n// cek element pertama harganya paling murah\nconst firstPrice = await driver.findElement(By.css('.inventory_item_price'));\nconst priceText = await firstPrice.getText(); // misal \"$7.99\"\nassert.ok(priceText.includes('$')); // minimal cek ada price\nawait driver.sleep(2000);\nawait driver.quit();",
               "err": {},
-              "uuid": "60e88d1c-a6e7-40fb-90c7-fb7b0a6f835b",
-              "parentUUID": "3e1ee444-e4c1-477c-8b26-5c1b33db10e1",
+              "uuid": "a160ed9a-ca4c-4f65-b9cd-23df51352dc7",
+              "parentUUID": "a4f957b4-b7bd-4a38-9987-13d003859085",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "293c6b92-648a-49f6-845f-30ca66017df2",
-            "60e88d1c-a6e7-40fb-90c7-fb7b0a6f835b"
+            "a011cc20-360c-494b-9668-49644356e2fc",
+            "a160ed9a-ca4c-4f65-b9cd-23df51352dc7"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 8851,
+          "duration": 8935,
           "root": false,
           "rootEmpty": false,
           "_timeout": 60000
